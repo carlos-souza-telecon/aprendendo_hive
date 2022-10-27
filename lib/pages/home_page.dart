@@ -34,6 +34,13 @@ class _HomePageState extends State<HomePage> {
           ),
           for (int i = 0; i < pessoasBox.length; i++)
             InkWell(
+              onTap: () {
+                setState(() {
+                  var pessoa = pessoasBox.getAt(i);
+                  pessoa?.nome = 'Ronaldo';
+                  pessoa?.save();
+                });
+              },
               onLongPress: () {
                 setState(() {
                   var pessoa = pessoasBox.getAt(i);
