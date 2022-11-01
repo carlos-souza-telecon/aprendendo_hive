@@ -17,21 +17,19 @@ class PessoaAdapter extends TypeAdapter<Pessoa> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Pessoa(
-      nome: fields[0] as String?,
-      idade: fields[1] as int?,
-    )..id = fields[2] as String?;
+      fields[0] as String,
+      fields[1] as int,
+    );
   }
 
   @override
   void write(BinaryWriter writer, Pessoa obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(2)
       ..writeByte(0)
       ..write(obj.nome)
       ..writeByte(1)
-      ..write(obj.idade)
-      ..writeByte(2)
-      ..write(obj.id);
+      ..write(obj.idade);
   }
 
   @override

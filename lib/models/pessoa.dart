@@ -1,16 +1,15 @@
 import 'package:hive/hive.dart';
-import 'package:uuid/uuid.dart';
 
 part 'pessoa.g.dart';
 
 @HiveType(typeId: 1)
-class Pessoa extends HiveObject {
+class Pessoa {
   @HiveField(0)
-  String? nome;
-  @HiveField(1)
-  int? idade;
-  @HiveField(2)
-  String? id = Uuid().v4();
+  String nome;
 
-  Pessoa({this.nome, this.idade});
+  @HiveField(1)
+  int idade;
+
+  Pessoa(this.nome, this.idade);
+//quando for criar uma pessoa, precisa dar nome e idade(É o que isso está fazendo)
 }
